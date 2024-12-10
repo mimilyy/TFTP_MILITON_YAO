@@ -29,3 +29,7 @@ The main function initializes a *struct addrinfo hints, res, and uses getaddrinf
 ### Question 3
 
 The program creates a socket. If an error occurs during socket creation, it prints an error message, "Socket creation error," and exits. It also checks for any connection errors with the server, and if the connection fails, it displays an error message.
+
+### Question 4
+
+![image](https://github.com/user-attachments/assets/d6528dd1-8b6d-4df5-81b4-582d27d5b761)
