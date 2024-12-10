@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void gettftp(char *serveurhost,char *filnemae){
+void gettftp(char *serveurhost,char *filename){
     
 }
 
