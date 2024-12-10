@@ -17,3 +17,11 @@ The main function verifies if the number of command-line arguments is equal to 3
 ***Terminal output***
 
 ![Error](https://github.com/user-attachments/assets/a090f6c1-3198-47d9-ba72-932e0d344981)
+
+### Question 2
+
+The main function initializes a *struct addrinfo hints, res, and uses getaddrinfo to retrieve the server's address, and then extracts it.
+
+***Terminal output***
+
+![q2](https://github.com/user-attachments/assets/f48446f3-7512-4b6d-90d8-f2f4474ad775)
