@@ -33,3 +33,24 @@ The program creates a socket. If an error occurs during socket creation, it prin
 ### Question 4
 
 ![image](https://github.com/user-attachments/assets/d6528dd1-8b6d-4df5-81b4-582d27d5b761)
+
+### 4.a.
+
+*Construction of the RRQ Packet*   
+The opcode field of the rrqPacket is assigned the RRQ opcode. The htons is then used to convert the opcode to network byte order (big-endian).
+
+*Transmission of the RRQ Packet to the Server*   
+The RRQ packet is transmitted to the TFTP server using a UDP socket. The sendto function is used to send the RRQ packet to the server. The parameters used are as follows:   
+- sockfd: The socket file descriptor.   
+- &rrqPacket: A pointer to the RRQ packet.   
+- sizeof(rrqPacket): The size of the RRQ packet in bytes.   
+- 0: Flags set to zero.   
+- server_addr: A pointer to the server's address structure.   
+- sizeof(struct sockaddr): The size of the server's address structure, in bytes.
+
+The sendto function is called as follows:
+sendto(sockfd, &rrqPacket, sizeof(rrqPacket), 0, server_addr, sizeof(struct sockaddr));
+
+***Captured by us on Wireshark***
+
+![q4a](https://github.com/user-attachments/assets/d96c819f-c7c2-4b51-9174-166677aa76c1)
