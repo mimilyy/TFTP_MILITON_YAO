@@ -84,3 +84,11 @@ Small files can be sent successfully. However, due to the packet size limitation
 ***Captured by us on Wireshark***
 
 ![q4b](https://github.com/user-attachments/assets/63870a33-20fa-40f8-9ddb-18192976d714)
+
+### 4.c.
+
+The receiveFile function is responsible for receiving DATA (DAT) packets, sending corresponding Acknowledgment (ACK) packets to the server, and writing the received data into a file until the last packet is received. This function has been tested using the file ensea.png, and the process was captured using Wireshark.
+
+***Captured by us on Wireshark***
+
+![q4c](https://github.com/user-attachments/assets/ce67438b-271f-4b7b-a2e6-86174f06f71f)
