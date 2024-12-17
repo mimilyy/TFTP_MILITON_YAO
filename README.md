@@ -54,3 +54,33 @@ sendto(sockfd, &rrqPacket, sizeof(rrqPacket), 0, server_addr, sizeof(struct sock
 ***Captured by us on Wireshark***
 
 ![q4a](https://github.com/user-attachments/assets/d96c819f-c7c2-4b51-9174-166677aa76c1)
+
+### 4.b.
+
+The sendRRQ function is used to send a Read Request (RRQ) packet to the server. The receiveDAT function is responsible for receiving a DATA packet from the server, sending an Acknowledgment (ACK) packet back to the server, and writing the data to a file.
+
+*sendRRQ function*:   
+The first two bytes of the rrq_buffer are set to 0x00 and 0x01, representing the RRQ opcode. The filename is copied into the buffer starting at position 2 and is null-terminated. The mode is copied after the filename and is also null-terminated. Finally, the RRQ packet is sent to the server.
+
+*receiveDAT function*:   
+The recvfrom function is used to receive the DATA packet from the server. If an error occurs during the reception, an error message is printed. The function signature is as follows:
+recvfrom(sockfd, data_buffer, MAX_BUFFER_SIZE, 0, server_addr, &server_addr_len);
+
+The parameters are explained as follows:
+- sockfd: The socket file descriptor.
+- data_buffer: A pointer to the buffer where the received data will be stored.
+- MAX_BUFFER_SIZE: The maximum number of bytes that can be received.
+- 0: Flags set to zero.
+- server_addr: A pointer to a variable where the server's address will be stored.
+- &server_addr_len: A pointer to the size of the server address.
+
+Once the DATA packet is received, the ACK packet is constructed. The first two bytes are set to 0x00 and 0x04, representing the ACK opcode. The data buffer is then copied into the packet before it is sent to the server. If an error occurs during the sending process, an error message is printed.
+
+The filename is opened in binary write mode, and the data from the packet is written to the file, starting from the 5th byte, as the first 4 bytes are used for the opcode and block number.
+
+Problem encountered:   
+Small files can be sent successfully. However, due to the packet size limitation, larger files are split into several smaller packets.
+
+***Captured by us on Wireshark***
+
+![q4b](https://github.com/user-attachments/assets/63870a33-20fa-40f8-9ddb-18192976d714)
