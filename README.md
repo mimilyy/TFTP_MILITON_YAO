@@ -57,7 +57,7 @@ sendto(sockfd, &rrqPacket, sizeof(rrqPacket), 0, server_addr, sizeof(struct sock
 
 ### 4.b.
 
-The sendRRQ function is used to send a Read Request (RRQ) packet to the server. The receiveDAT function is responsible for receiving a DATA packet from the server, sending an Acknowledgment (ACK) packet back to the server, and writing the data to a file.
+The sendRRQ function is used to send a Read Request (RRQ) packet to the server. The receiveDAT function is responsible for receiving a DATA packet from the server, sending an acknowledgment (ACK) packet back to the server, and writing the data to a file.
 
 *sendRRQ function*:   
 The first two bytes of the rrq_buffer are set to 0x00 and 0x01, representing the RRQ opcode. The filename is copied into the buffer starting at position 2 and is null-terminated. The mode is copied after the filename and is also null-terminated. Finally, the RRQ packet is sent to the server.
@@ -87,8 +87,16 @@ Small files can be sent successfully. However, due to the packet size limitation
 
 ### 4.c.
 
-The receiveFile function is responsible for receiving DATA (DAT) packets, sending corresponding Acknowledgment (ACK) packets to the server, and writing the received data into a file until the last packet is received. This function has been tested using the file ensea.png, and the process was captured using Wireshark.
+The receiveFile function is responsible for receiving DATA (DAT) packets, sending corresponding acknowledgment (ACK) packets to the server, and writing the received data into a file until the last packet is received. This function has been tested using the file ensea.png, and the process was captured using Wireshark.
 
 ***Captured by us on Wireshark***
 
 ![q4c](https://github.com/user-attachments/assets/ce67438b-271f-4b7b-a2e6-86174f06f71f)
+
+### Question 5
+
+### 5.a.
+
+The sendWRQ function is similar to the sendRRQ function, with the primary difference being the opcode. The Write Request (WRQ) is sent using the sendto function.
+
+![q5a](https://github.com/user-attachments/assets/f5901e5b-d742-49b8-8018-7803bd70ecc9)
