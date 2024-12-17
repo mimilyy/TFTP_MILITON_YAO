@@ -102,3 +102,17 @@ The sendWRQ function is similar to the sendRRQ function, with the primary differ
 ***Captured by us on Wireshark***
 
 ![q5a](https://github.com/user-attachments/assets/f5901e5b-d742-49b8-8018-7803bd70ecc9)
+
+### 5.b.
+
+The sendSingleDAT function sends a single DAT packet to the server and verifies whether the received ACK packet is correct.
+
+The DATA packet is prepared with the first two bytes set to 0x00 and 0x03, representing the DATA opcode. The two bytes for the block number are initialized to 1 for simplicity, and the packet is then sent.
+
+The recvfrom function is used, as before, to receive the ACK packet. The function checks whether the ACK packet matches the expected block number. If there is a mismatch, an error message is printed.
+
+In the screenshot, the SendTest.txt file has been caught by the local server (highlighted in the red box).
+
+***Captured by us on Wireshark***
+
+![q5b](https://github.com/user-attachments/assets/de140cd4-61b6-4680-a411-695224426a6b)
