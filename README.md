@@ -116,3 +116,13 @@ In the screenshot, the SendTest.txt file has been caught by the local server (hi
 ***Captured by us on Wireshark***
 
 ![q5b](https://github.com/user-attachments/assets/de140cd4-61b6-4680-a411-695224426a6b)
+
+### 5.c.
+
+The sendFile function prepares the DAT packet, sets the block number for each packet, sends the DATA packet, receives and checks the corresponding ACK packet, and increments the block number until the last block of DATA is sent.
+
+In the screenshot, the SendTestImage.jpeg file has been caught by the local server (highlighted in the red box).
+
+***Captured by us on Wireshark***
+
+![q5c](https://github.com/user-attachments/assets/2147c804-ada5-4164-9f6a-f2af93a600fd)
