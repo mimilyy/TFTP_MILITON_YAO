@@ -30,7 +30,7 @@ struct TFTPAckPacket {
     uint16_t block_number; // Block number
 };
 
-//Function to send a RRQ packet to the server
+//Function to send a WRQ packet to the server
 void sendWRQ(int sockfd, struct sockaddr *server_addr, const char *filename) {
     char wrq_buffer[MAX_BUFFER_SIZE];
     //Opcode (2 bytes)
